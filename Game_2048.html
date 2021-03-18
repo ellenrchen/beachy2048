@@ -1,0 +1,47 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>A Beachy 2048</title>
+    <script src="Game_2048.js"></script>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="beachball.png">
+</head>
+
+<body>
+    <div id="myapp"></div>
+    <script>
+        var app = Elm.Game_2048.init({
+            node: document.getElementById('myapp')
+        });
+
+        function saveScore(nums) {
+            var s = JSON.stringify(nums);
+            localStorage.setItem("high", s);
+        }
+
+        function loadScore() {
+            var s = localStorage.getItem("high");
+            var nums = s === null ? 0 : JSON.parse(s);
+            return nums;
+        }
+
+        app.ports.saveScore.subscribe(function (nums) {
+            saveScore(nums);
+        });
+
+        app.ports.loadScoreRequest.subscribe(function () {
+            var nums = loadScore();
+            app.ports.loadScoreReceive.send(nums);
+        });
+
+        document.addEventListener("keydown", function (e) {
+            if ([37, 38, 39, 40].indexOf(e.keyCode) > -1) {
+                e.preventDefault();
+                // Do whatever else you want with the keydown event (i.e. your navigation).
+            }
+        }, false);
+    </script>
+</body>
+
+</html>

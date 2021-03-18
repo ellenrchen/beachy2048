@@ -1,0 +1,42 @@
+body {
+ background-image: url("beach.jpeg");
+}
+
+.title{
+  color: white;
+  font-size: 60px;
+  margin-top: 20px;
+  letter-spacing: 2px;
+  margin-bottom: 0px;
+}
+
+.score-info{
+  margin-top: -5px;
+}
+
+.info{
+  /* color: white; */
+}
+
+.endscreen{
+  margin: 25% auto;
+}
+
+.endscreen-lose{
+  color: #CC0000;
+  font-size: 60px;
+  margin-bottom: 0px;
+}
+
+.playagain-btn{
+  border-radius: 10px;
+  padding: 10px 20px;
+  background-color: #E5CA89;
+  color: white;
+  border: none;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  font-family: "Helvetica"
+}
